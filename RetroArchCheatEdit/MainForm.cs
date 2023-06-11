@@ -18,6 +18,7 @@ namespace RetroArchCheatEdit
 			btnDelete.Click += (sender, e) => { cheatListbox1.DeleteData(); };
 			btnUp.Click += (sender, e) => { cheatListbox1.UpMoveData(); };
 			btnDown.Click += (sender, e) => { cheatListbox1.DownMoveData(); };
+			btnGet.Click += (sender, e) => { cheatListbox1.GetData(); };
 		}
 		// ******************************************************************
 		public bool OpenFile()

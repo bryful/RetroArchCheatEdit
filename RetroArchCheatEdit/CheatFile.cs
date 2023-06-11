@@ -65,7 +65,7 @@ namespace RetroArchCheatEdit
 					if (sa[0]== "cheats")
 					{
 						int v = 0;
-						if (int.TryParse(sa[1], out v))
+						if (int.TryParse(DelWQ(sa[1]), out v))
 						{
 							ret = v;
 						}
@@ -96,13 +96,26 @@ namespace RetroArchCheatEdit
 				{
 					if (lines[i][0]== tag)
 					{
-						ret = lines[i][1];
+						ret = DelWQ(lines[i][1]);
 					}
 				}
 			}
 			return ret;
 		}
 		// **********************************************************
+		public string DelWQ(string s)
+		{
+			s = s.Trim();
+			if (s.Length > 0)
+			{
+				if (s[0] == '\"') s = s.Substring(1, s.Length - 1).Trim();
+			}
+			if (s.Length > 0)
+			{
+				if (s[s.Length - 1] == '\"') s = s.Substring(0, s.Length - 1).Trim();
+			}
+			return s;
+		}
 		private bool Analysis(string[] lines)
 		{
 			bool ret = false;

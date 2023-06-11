@@ -46,6 +46,7 @@
 			quitToolStripMenuItem = new ToolStripMenuItem();
 			splitContainer1 = new SplitContainer();
 			pictureBox1 = new PictureBox();
+			btnGet = new Button();
 			menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
 			splitContainer1.Panel1.SuspendLayout();
@@ -65,7 +66,7 @@
 			// 
 			// btnAdd
 			// 
-			btnAdd.Location = new Point(13, 14);
+			btnAdd.Location = new Point(76, 14);
 			btnAdd.Name = "btnAdd";
 			btnAdd.Size = new Size(57, 45);
 			btnAdd.TabIndex = 0;
@@ -74,7 +75,7 @@
 			// 
 			// btnUpdate
 			// 
-			btnUpdate.Location = new Point(76, 14);
+			btnUpdate.Location = new Point(139, 14);
 			btnUpdate.Name = "btnUpdate";
 			btnUpdate.Size = new Size(53, 45);
 			btnUpdate.TabIndex = 1;
@@ -140,7 +141,7 @@
 			// cbEnable
 			// 
 			cbEnable.AutoSize = true;
-			cbEnable.Location = new Point(135, 40);
+			cbEnable.Location = new Point(198, 40);
 			cbEnable.Name = "cbEnable";
 			cbEnable.Size = new Size(61, 19);
 			cbEnable.TabIndex = 2;
@@ -203,6 +204,7 @@
 			// 
 			// splitContainer1.Panel2
 			// 
+			splitContainer1.Panel2.Controls.Add(btnGet);
 			splitContainer1.Panel2.Controls.Add(cbEnable);
 			splitContainer1.Panel2.Controls.Add(tbCode);
 			splitContainer1.Panel2.Controls.Add(tbDes);
@@ -220,6 +222,15 @@
 			pictureBox1.Size = new Size(64, 56);
 			pictureBox1.TabIndex = 10;
 			pictureBox1.TabStop = false;
+			// 
+			// btnGet
+			// 
+			btnGet.Location = new Point(13, 14);
+			btnGet.Name = "btnGet";
+			btnGet.Size = new Size(57, 45);
+			btnGet.TabIndex = 5;
+			btnGet.Text = "Get";
+			btnGet.UseVisualStyleBackColor = true;
 			// 
 			// MainForm
 			// 
@@ -262,5 +273,6 @@
 		private SplitContainer splitContainer1;
 		private CheckBox cbEnable;
 		private PictureBox pictureBox1;
+		private Button btnGet;
 	}
 }

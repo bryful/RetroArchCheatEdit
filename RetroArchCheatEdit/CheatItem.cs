@@ -12,6 +12,19 @@ namespace RetroArchCheatEdit
 		public bool Enable { set; get; } = false;
 		public string Desc { set; get; } = "";
 		private List<string> m_CodeList = new List<string>();
+		public string DelWQ(string s)
+		{
+			s = s.Trim();
+			if (s.Length > 0)
+			{
+				if (s[0] == '\"') s = s.Substring(1, s.Length - 1).Trim();
+			}
+			if (s.Length > 0)
+			{
+				if (s[s.Length - 1] == '\"') s = s.Substring(0, s.Length - 1).Trim();
+			}
+			return s;
+		}
 		public string Code
 		{
 			get 
@@ -23,10 +36,11 @@ namespace RetroArchCheatEdit
 				string[] sa = value.Split("+");
 				if (sa.Length > 0)
 				{
+
 					m_CodeList.Clear();
 					for (int i = 0; i < sa.Length; i++)
 					{
-						m_CodeList.Add(sa[i].Trim());
+						m_CodeList.Add(DelWQ(sa[i]));
 					}
 				}
 			}
@@ -42,15 +56,15 @@ namespace RetroArchCheatEdit
 				{
 					for (int i = 0; i < sa.Length; i++)
 					{
-						m_CodeList.Add(sa[i].Trim());
+						m_CodeList.Add(DelWQ(sa[i]));
 					}
 				}
 			}
 		}
 		public CheatItem(string des, string code,bool ena=false)
 		{
-			this.Desc = des;
-			this.Code = code;
+			this.Desc = DelWQ(des);
+			this.Code = DelWQ(code);
 			Enable = ena;
 		}
 		public CheatItem(CheatItem ci)
@@ -59,7 +73,7 @@ namespace RetroArchCheatEdit
 		}
 		public void Assign(CheatItem ci)
 		{
-			Desc = ci.Desc;
+			Desc = DelWQ(ci.Desc);
 			Enable = ci.Enable;
 			m_CodeList.Clear();
 
@@ -67,7 +81,7 @@ namespace RetroArchCheatEdit
 			{
 				foreach (string s in ci.m_CodeList)
 				{
-					m_CodeList.Add(s);
+					m_CodeList.Add(DelWQ(s));
 				}
 			}
 		}

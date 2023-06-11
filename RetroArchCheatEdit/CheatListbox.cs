@@ -73,20 +73,24 @@ namespace RetroArchCheatEdit
 			return ret;
 		}
 		// *****************************************************************
-		protected override void OnSelectedIndexChanged(EventArgs e)
+		protected override void OnMouseDoubleClick(MouseEventArgs e)
+		{
+			GetData();
+		}
+		public void GetData()
 		{
 			int idx = this.SelectedIndex;
-			if ((idx >=0)&&(idx<cf.CheatCount))
+			if ((idx >= 0) && (idx < cf.CheatCount))
 			{
-				if(m_DesTextBox != null)
+				if (m_DesTextBox != null)
 				{
-					m_DesTextBox.Text = cf.Items[idx].Desc; 
+					m_DesTextBox.Text = cf.Items[idx].Desc;
 				}
 				if (m_CodeTextBox != null)
 				{
 					m_CodeTextBox.Text = cf.Items[idx].CodeText;
 				}
-				if(m_EnableCheckBox != null)
+				if (m_EnableCheckBox != null)
 				{
 					m_EnableCheckBox.Checked = cf.Items[idx].Enable;
 				}
