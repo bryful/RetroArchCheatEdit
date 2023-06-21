@@ -40,7 +40,7 @@ namespace RetroArchCheatEdit
 					m_CodeList.Clear();
 					for (int i = 0; i < sa.Length; i++)
 					{
-						m_CodeList.Add(DelWQ(sa[i]));
+						m_CodeList.Add(DelWQ(sa[i].Trim()));
 					}
 				}
 			}
@@ -56,7 +56,7 @@ namespace RetroArchCheatEdit
 				{
 					for (int i = 0; i < sa.Length; i++)
 					{
-						m_CodeList.Add(DelWQ(sa[i]));
+						m_CodeList.Add(DelWQ(sa[i].Trim()));
 					}
 				}
 			}
