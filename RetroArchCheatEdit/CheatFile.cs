@@ -18,6 +18,12 @@ namespace RetroArchCheatEdit
 			}
 		}
 		// **********************************************************
+		public void Clear()
+		{
+			m_FileName = "";
+			Items.Clear();
+		}
+		// **********************************************************
 		public List<CheatItem> Items = new List<CheatItem>();
 		public int CheatCount { get { return Items.Count; } }
 		// **********************************************************

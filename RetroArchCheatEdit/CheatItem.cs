@@ -61,6 +61,21 @@ namespace RetroArchCheatEdit
 				}
 			}
 		}
+		public string [] CodeLines
+		{
+			get { return m_CodeList.ToArray(); }
+			set
+			{
+				m_CodeList.Clear();
+				if (value.Length > 0)
+				{
+					for (int i = 0; i < value.Length; i++)
+					{
+						m_CodeList.Add(DelWQ(value[i].Trim()));
+					}
+				}
+			}
+		}
 		public CheatItem(string des, string code,bool ena=false)
 		{
 			this.Desc = DelWQ(des);

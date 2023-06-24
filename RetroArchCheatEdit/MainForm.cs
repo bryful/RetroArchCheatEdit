@@ -12,6 +12,7 @@ namespace RetroArchCheatEdit
 			openToolStripMenuItem.Click += (sender, e) => { OpenFile(); };
 			saveToolStripMenuItem.Click += (sender, e) => { SaveFile(); };
 			saveAsToolStripMenuItem.Click += (sender, e) => { SaveAsFile(); };
+			ClearMenu.Click += (sender, e) => { cheatListbox1.Clear(); };
 
 			btnAdd.Click += (sender, e) => { cheatListbox1.AddData(); };
 			btnUpdate.Click += (sender, e) => { cheatListbox1.UpdateData(); };

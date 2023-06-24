@@ -47,6 +47,7 @@
 			splitContainer1 = new SplitContainer();
 			pictureBox1 = new PictureBox();
 			btnGet = new Button();
+			ClearMenu = new ToolStripMenuItem();
 			menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
 			splitContainer1.Panel1.SuspendLayout();
@@ -159,7 +160,7 @@
 			// 
 			// fileToolStripMenuItem
 			// 
-			fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openToolStripMenuItem, saveToolStripMenuItem, saveAsToolStripMenuItem, quitToolStripMenuItem });
+			fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ClearMenu, openToolStripMenuItem, saveToolStripMenuItem, saveAsToolStripMenuItem, quitToolStripMenuItem });
 			fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			fileToolStripMenuItem.Size = new Size(37, 20);
 			fileToolStripMenuItem.Text = "File";
@@ -167,25 +168,25 @@
 			// openToolStripMenuItem
 			// 
 			openToolStripMenuItem.Name = "openToolStripMenuItem";
-			openToolStripMenuItem.Size = new Size(111, 22);
+			openToolStripMenuItem.Size = new Size(180, 22);
 			openToolStripMenuItem.Text = "Open";
 			// 
 			// saveToolStripMenuItem
 			// 
 			saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-			saveToolStripMenuItem.Size = new Size(111, 22);
+			saveToolStripMenuItem.Size = new Size(180, 22);
 			saveToolStripMenuItem.Text = "Save";
 			// 
 			// saveAsToolStripMenuItem
 			// 
 			saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-			saveAsToolStripMenuItem.Size = new Size(111, 22);
+			saveAsToolStripMenuItem.Size = new Size(180, 22);
 			saveAsToolStripMenuItem.Text = "SaveAs";
 			// 
 			// quitToolStripMenuItem
 			// 
 			quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-			quitToolStripMenuItem.Size = new Size(111, 22);
+			quitToolStripMenuItem.Size = new Size(180, 22);
 			quitToolStripMenuItem.Text = "Quit";
 			// 
 			// splitContainer1
@@ -232,6 +233,12 @@
 			btnGet.Text = "Get";
 			btnGet.UseVisualStyleBackColor = true;
 			// 
+			// ClearMenu
+			// 
+			ClearMenu.Name = "ClearMenu";
+			ClearMenu.Size = new Size(180, 22);
+			ClearMenu.Text = "Clear";
+			// 
 			// MainForm
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -274,5 +281,6 @@
 		private CheckBox cbEnable;
 		private PictureBox pictureBox1;
 		private Button btnGet;
+		private ToolStripMenuItem ClearMenu;
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,6 +28,7 @@ namespace RetroArchCheatEdit
 		{
 			get { return cf.FileName; }
 		}
+		// *****************************************************************
 		// *****************************************************************
 		private TextBox? m_CodeTextBox = null;
 		public TextBox? CodeTextBox
@@ -72,6 +74,23 @@ namespace RetroArchCheatEdit
 			bool ret = cf.Save(p);
 			return ret;
 		}
+		public void Clear()
+		{
+			this.Items.Clear();
+			cf.Clear();
+			if (m_DesTextBox != null)
+			{
+				m_DesTextBox.Text = "";
+			}
+			if (m_CodeTextBox != null)
+			{
+				m_CodeTextBox.Text = "";
+			}
+			if (m_EnableCheckBox != null)
+			{
+				m_EnableCheckBox.Checked = false;
+			}
+		}
 		// *****************************************************************
 		protected override void OnMouseDoubleClick(MouseEventArgs e)
 		{
@@ -88,7 +107,7 @@ namespace RetroArchCheatEdit
 				}
 				if (m_CodeTextBox != null)
 				{
-					m_CodeTextBox.Text = cf.Items[idx].CodeText;
+					m_CodeTextBox.Lines = cf.Items[idx].CodeLines;
 				}
 				if (m_EnableCheckBox != null)
 				{
@@ -102,12 +121,12 @@ namespace RetroArchCheatEdit
 			int idx = this.SelectedIndex;
 			if ((idx >= 0) && (idx < cf.CheatCount))
 			{
-				string c = "";
 				string d = "";
+				string [] c = new string[0];
 				bool e = false;
 				if (m_CodeTextBox != null)
 				{
-					c = m_CodeTextBox.Text.Trim();
+					c = m_CodeTextBox.Lines;
 				}
 				if (m_DesTextBox != null)
 				{
@@ -119,7 +138,7 @@ namespace RetroArchCheatEdit
 				}
 
 				cf.Items[idx].Desc = d;
-				cf.Items[idx].CodeText = c;
+				cf.Items[idx].CodeLines = c;
 				cf.Items[idx].Enable = e;
 				this.Items[idx] = d;
 			}
@@ -127,7 +146,7 @@ namespace RetroArchCheatEdit
 		public void AddData()
 		{
 			string d = "";
-			string c = "";
+			string [] c = new string[0];
 			bool e = false;
 			if (m_DesTextBox != null)
 			{
@@ -135,16 +154,16 @@ namespace RetroArchCheatEdit
 			}
 			if (m_CodeTextBox != null)
 			{
-				c = m_CodeTextBox.Text.Trim();
+				c = m_CodeTextBox.Lines;
 			}
 			if (m_EnableCheckBox != null)
 			{
 				e = m_EnableCheckBox.Checked;
 			}
-			CheatItem ci = new CheatItem(d, c, e);
+			CheatItem ci = new CheatItem(d, string.Join("+", c), e);
 
 			int si = this.SelectedIndex;
-			if(si <0)
+			if((si <0)||(si>=this.Items.Count-1))
 			{
 				cf.Items.Add(ci);
 				this.Items.Add(ci.Desc);
@@ -152,8 +171,9 @@ namespace RetroArchCheatEdit
 			}
 			else
 			{
-				cf.Items.Insert(si,ci);
-				this.Items.Insert(si, ci.Desc);
+				cf.Items.Insert(si+1,ci);
+				this.Items.Insert(si+1, ci.Desc);
+				this.SelectedIndex = si+1;
 			}
 
 		}
